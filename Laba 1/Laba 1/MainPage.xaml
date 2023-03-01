@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Laba_1.MainPage"
+             Title="Регистрация">
+    <ContentPage.Resources>
+
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+            <Setter Property="PlaceholderColor" Value="{DynamicResource SecondaryTextColor}"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource TransparentColor}"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource TransparentColor}"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource TransparentColor}"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource TransparentColor}"/>
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource TransparentColor}"/>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource TransparentColor}"/>
+        </Style>
+        <Style TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <StackLayout>
+        <Frame BackgroundColor="{DynamicResource NavigationBarColor}" Padding="10" CornerRadius="0">
+            <StackLayout Orientation="Horizontal" BackgroundColor="{DynamicResource TransparentColor}">
+                <Label Text="Регистрация" FontSize="30"/>
+                <Button x:Name="btnTheme" Text="Тема" 
+                        Clicked="btnTheme_Clicked"
+                        HorizontalOptions="EndAndExpand"/>
+                <Button x:Name="btnExit" Text="Выход"
+                        Clicked="btnExit_Clicked"
+                        HorizontalOptions="End"/>
+            </StackLayout>
+        </Frame>
+        <ScrollView>
+            <StackLayout Margin="20,10,20,10">
+                <Entry x:Name="tbLogin" Placeholder="Логин..." 
+                       FontSize="Title"/>
+                <Label Text="Дата рождения:" FontSize="Title"/>
+                <DatePicker Format="D"
+                            FontSize="Title"
+                            MaximumDate="01/01/2010"
+                            MinimumDate="01/01/1940"/> 
+                <Entry x:Name="tbPhone" Placeholder="Телефон..." 
+                       FontSize="Title" 
+                       Keyboard="Telephone"/>
+                <Entry x:Name="tbEmail" Placeholder="Электронная почта..." 
+                       FontSize="Title" 
+                       Keyboard="Email"/>
+                <Entry x:Name="tbAddress" Placeholder="Домашний адрес..." 
+                       FontSize="Title"/>
+                <Label Text="Выберите роль:" FontSize="Title"/>
+                <Picker x:Name="pickerRole" FontSize="Title">
+                    <Picker.Items>
+                        <x:String>Клиент</x:String>
+                        <x:String>Библиотекарь</x:String>
+                        <x:String>Администратор</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Entry x:Name="tbPassword1" Placeholder="Пароль..." 
+                       FontSize="Title" IsPassword="True"/>
+                <Entry x:Name="tbPassword2" Placeholder="Повтор пароля..." 
+                       FontSize="Title" IsPassword="True"/>
+                <Button x:Name="btnRegistration" Text="Зарегистрироваться"
+                        Clicked="btnRegistration_Clicked"
+                        CornerRadius="50"
+                        Margin="0,20,0,0"
+                        BorderWidth="2"/>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+
+</ContentPage>
