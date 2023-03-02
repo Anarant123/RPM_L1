@@ -17,6 +17,11 @@ namespace Laba_1.Views
             InitializeComponent();
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         async private void btnShowStats_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new StatisticsPage());

@@ -7,14 +7,20 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Книга 1"/>
-            <Button x:Name="btnDeleteBook" 
-                    Text="Просмотр статистики"
-                    Clicked="btnDeleteBook_Clicked"/>
-            <Button x:Name="btnEditBook" 
-                    Text="Просмотр статистики"
-                    Clicked="btnEditBook_Clicked"/>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Книга 1" VerticalOptions="Center"/>
+                <Button x:Name="btnDeleteBook" 
+                        Text="Удалить"
+                        Clicked="btnDeleteBook_Clicked"
+                        FontSize="Small"
+                        HorizontalOptions="End"/>
+                <Button x:Name="btnEditBook" 
+                        Text="Редактировать"
+                        Clicked="btnEditBook_Clicked"
+                        FontSize="Small"
+                        HorizontalOptions="End"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

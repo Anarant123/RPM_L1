@@ -20,6 +20,22 @@
         <StackLayout Orientation="Vertical"
                      Margin="20"
                      Spacing="10">
+            <Image x:Name="imgProfile"
+                   Source="icon_image_person.png"
+                   WidthRequest="200"
+                   HeightRequest="200">
+                
+            </Image>
+
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="btnMakePhoto"
+                        Clicked="btnMakePhoto_Clicked"
+                        Text="Сделать фото"/>
+                <Button x:Name="btnGetPhoto"
+                        Clicked="btnGetPhoto_Clicked"
+                        Text="Выбрать фото"/>
+            </StackLayout>
+            
             <Label Text="{x:Static models:UserNow.Role}"
                    HorizontalOptions="CenterAndExpand"/>
 

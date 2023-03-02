@@ -27,6 +27,7 @@ namespace Laba_1
             mergedDictionaries.Add(new LightTheme());
 
             InitializeComponent();
+
             pickerRole.SelectedIndex = 0;
         }
 
@@ -49,7 +50,7 @@ namespace Laba_1
 
         async private void btnRegistration_Clicked(object sender, EventArgs e)
         {
-            if(tbLogin.Text != "" && tbAddress.Text != "" && tbEmail.Text != "" && tbPhone.Text != "" && pickerRole.SelectedItem != null)
+            if(tbLogin.Text != null && tbAddress.Text != null && tbEmail.Text != null && tbPhone.Text != null && pickerRole.SelectedItem != null)
             {
                 if (tbPassword1.Text == null || tbPassword1.Text.Length < 8)
                 {
@@ -73,10 +74,10 @@ namespace Laba_1
                             await Navigation.PushAsync(new ProfilePage());
                             break;
                         case 1:
-                            await Navigation.PushAsync(new AdminPage());
+                            await Navigation.PushAsync(new LibrarianBooksPage());
                             break;
                         case 2:
-                            await Navigation.PushAsync(new LibrarianBooksPage());
+                            await Navigation.PushAsync(new AdminPage());
                             break;
                     }
 

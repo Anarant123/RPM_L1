@@ -17,6 +17,11 @@ namespace Laba_1.Views
             InitializeComponent();
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         async private void btnEditBook_Clicked(object sender, EventArgs e)
         {
             AdOrEditBookPage adOrEditBookPage = new AdOrEditBookPage();
