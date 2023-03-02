@@ -12,12 +12,14 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Laba_1.Themes;
 using Laba_1.Models;
 using Laba_1.Views;
+using Laba_1.Services;
 
 namespace Laba_1
 {
     
     public partial class MainPage : ContentPage
     {
+        bool loaded = false;
         public MainPage()
         {
             ICollection<ResourceDictionary> mergedDictionaries = App.Current.Resources.MergedDictionaries;
@@ -26,6 +28,16 @@ namespace Laba_1
 
             InitializeComponent();
             pickerRole.SelectedIndex = 0;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (loaded == false)
+            {
+                DisplayStack.Show(lbNavStack);
+                loaded = true;
+            }
         }
 
         async private void btnExit_Clicked(object sender, EventArgs e)
@@ -55,7 +67,19 @@ namespace Laba_1
                     UserNow.Password = tbPassword1.Text;
                     string role = pickerRole.Items[pickerRole.SelectedIndex];
                     await DisplayAlert("Регистрация прошла успешно!", $"Вы зарегистрировались как {role}", "ОK");
-                    await Navigation.PushModalAsync(new ProfilePage());
+                    switch (pickerRole.SelectedIndex)
+                    {
+                        case 0:
+                            await Navigation.PushAsync(new ProfilePage());
+                            break;
+                        case 1:
+                            await Navigation.PushAsync(new AdminPage());
+                            break;
+                        case 2:
+                            await Navigation.PushAsync(new LibrarianBooksPage());
+                            break;
+                    }
+
                 }
                 else
                 {

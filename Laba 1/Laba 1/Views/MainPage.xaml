@@ -38,7 +38,7 @@
     </ContentPage.ToolbarItems>
     
     <StackLayout>
-        <Frame BackgroundColor="{DynamicResource NavigationBarColor}" Padding="10" CornerRadius="0">
+        <!--<Frame BackgroundColor="{DynamicResource NavigationBarColor}" Padding="10" CornerRadius="0">
             <StackLayout Orientation="Horizontal" BackgroundColor="{DynamicResource TransparentColor}">
                 <Label Text="Регистрация" FontSize="30"/>
                 <Button x:Name="btnTheme" Text="Тема" 
@@ -48,7 +48,7 @@
                         Clicked="btnExit_Clicked"
                         HorizontalOptions="End"/>
             </StackLayout>
-        </Frame>
+        </Frame>-->
         <ScrollView>
             <StackLayout Margin="20,10,20,10">
                 <Entry x:Name="tbLogin" Placeholder="Логин..." 
@@ -84,6 +84,12 @@
                         CornerRadius="50"
                         Margin="0,20,0,0"
                         BorderWidth="2"/>
+
+                <Label Margin="0,20,0,0"
+                    Text="Стек навигации:"
+                    HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="lbNavStack"
+                    HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
         </ScrollView>
     </StackLayout>
