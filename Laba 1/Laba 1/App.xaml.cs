@@ -13,7 +13,7 @@ namespace Laba_1
             Device.SetFlags(new string[] { "AppTheme_Experimental" });
 
             InitializeComponent();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.Black, BarTextColor = Color.White };
         }
 
         protected override void OnStart()

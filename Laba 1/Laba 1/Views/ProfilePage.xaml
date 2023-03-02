@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Laba_1.Models"
+             x:Class="Laba_1.Views.ProfilePage">
+    <ContentPage.Resources>
+        <Style TargetType="Image" x:Key="img">
+            <Setter Property="WidthRequest" Value="20"/>
+            <Setter Property="HeightRequest" Value="20"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="22"/>
+        </Style>
+
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     Margin="20"
+                     Spacing="10">
+            <Label Text="{x:Static models:UserNow.Role}"
+                   HorizontalOptions="CenterAndExpand"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{x:Static models:UserNow.Login}"/>
+                <Label Text="{x:Static models:UserNow.getBirthday}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="icon_phone.png"
+                       Style="{StaticResource img}"/>
+                <Label Text="{x:Static models:UserNow.Phone}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="icon_mail.png"
+                       Style="{StaticResource img}"/>
+                <Label Text="{x:Static models:UserNow.Email}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="icon_map_location.png"
+                       Style="{StaticResource img}"/>
+                <Label Text="{x:Static models:UserNow.Address}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

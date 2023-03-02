@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Laba_1.MainPage"
-             Title="Регистрация">
+             Title="Регистрация" IsVisible="True">
     <ContentPage.Resources>
-
+        
         <Style TargetType="Entry">
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
             <Setter Property="PlaceholderColor" Value="{DynamicResource SecondaryTextColor}"/>
@@ -31,6 +31,11 @@
             <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}"/>
         </Style>
     </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Тема" Clicked="btnTheme_Clicked"/>
+        <ToolbarItem Text="Выход" Clicked="btnExit_Clicked"/>
+    </ContentPage.ToolbarItems>
     
     <StackLayout>
         <Frame BackgroundColor="{DynamicResource NavigationBarColor}" Padding="10" CornerRadius="0">
@@ -49,7 +54,8 @@
                 <Entry x:Name="tbLogin" Placeholder="Логин..." 
                        FontSize="Title"/>
                 <Label Text="Дата рождения:" FontSize="Title"/>
-                <DatePicker Format="D"
+                <DatePicker x:Name="dpBirthday"
+                            Format="D"        
                             FontSize="Title"
                             MaximumDate="01/01/2010"
                             MinimumDate="01/01/1940"/> 
