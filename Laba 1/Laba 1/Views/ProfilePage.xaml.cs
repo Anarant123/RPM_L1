@@ -45,8 +45,17 @@ namespace Laba_1.Views
         {
             try
             {
-                // выбираем фото
-                var photo = await MediaPicker.PickPhotoAsync();
+                var photo = await MediaPicker.CapturePhotoAsync(new
+                MediaPickerOptions
+                {
+                    Title = $"xamarin.{ DateTime.Now.ToString("dd.MM.yyyy_hh.mm.ss") }.png"
+                });
+                // для примера сохраняем файл в локальном хранилище
+                var newFile = Path.Combine(FileSystem.AppDataDirectory,
+                photo.FileName);
+                using (var stream = await photo.OpenReadAsync())
+                using (var newStream = File.OpenWrite(newFile))
+                    await stream.CopyToAsync(newStream);
                 // загружаем в ImageView
                 imgProfile.Source = ImageSource.FromFile(photo.FullPath);
             }
@@ -60,17 +69,8 @@ namespace Laba_1.Views
         {
             try
             {
-                var photo = await MediaPicker.CapturePhotoAsync(new
-                MediaPickerOptions
-                {
-                    Title = $"xamarin.{ DateTime.Now.ToString("dd.MM.yyyy_hh.mm.ss") }.png"
-                });
-                // для примера сохраняем файл в локальном хранилище
-                var newFile = Path.Combine(FileSystem.AppDataDirectory,
-                photo.FileName);
-                using (var stream = await photo.OpenReadAsync())
-                using (var newStream = File.OpenWrite(newFile))
-                    await stream.CopyToAsync(newStream);
+                // выбираем фото
+                var photo = await MediaPicker.PickPhotoAsync();
                 // загружаем в ImageView
                 imgProfile.Source = ImageSource.FromFile(photo.FullPath);
             }

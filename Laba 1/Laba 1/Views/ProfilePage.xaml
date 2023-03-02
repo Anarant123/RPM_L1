@@ -27,7 +27,7 @@
                 
             </Image>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button x:Name="btnMakePhoto"
                         Clicked="btnMakePhoto_Clicked"
                         Text="Сделать фото"/>
